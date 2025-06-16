@@ -82,7 +82,7 @@ public class Main {
         System.out.println("2. Lease Contract");
         System.out.print("Enter your choice: ");
         int contractTypeChoice = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         switch (contractTypeChoice) {
             case 1:
@@ -267,25 +267,25 @@ public class Main {
 
         System.out.print("Enter the year: ");
         int year = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         System.out.print("Enter the color: ");
         String color = scanner.nextLine();
 
         System.out.print("Enter the mileage: ");
         int mileage = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         System.out.print("Enter the price: ");
         double price = scanner.nextDouble();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         System.out.print("Enter the type: ");
         String type = scanner.nextLine();
 
         System.out.print("Enter the dealership ID: ");
         int dealershipId = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         Vehicle vehicle = new Vehicle(vin, make, model, year, false, color, type, mileage, price);
         vehicleDao.addVehicle(vehicle);
@@ -307,7 +307,7 @@ public class Main {
     public static String generateRandomVin() {
         UUID uuid = UUID.randomUUID();
         String randomUUIDString = uuid.toString().toUpperCase().replaceAll("-", "");
-        // Assuming VIN length is 17 characters, you can adjust this if needed
+
         String vin = randomUUIDString.substring(0, 17);
         return vin;
     }
