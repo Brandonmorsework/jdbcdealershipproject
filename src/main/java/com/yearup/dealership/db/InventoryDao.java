@@ -15,9 +15,11 @@ public class InventoryDao {
     public void addVehicleToInventory(String vin, int dealershipId) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "Update vehicles SET vin = ? WHERE dealershipId = ?")) {
-            preparedStatement.setString(1, vin);
-            preparedStatement.setInt(2, dealershipId);
+                     "Update vehicles SET dealershipId = ? WHERE vin = ?")) {
+
+            preparedStatement.setInt(1, dealershipId);
+            preparedStatement.setString(2, vin);
+
 
             int entries = preparedStatement.executeUpdate();
 
@@ -37,6 +39,7 @@ public class InventoryDao {
             int entries = preparedStatement.executeUpdate();
 
             System.out.println("Entries Updated: " + entries);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
