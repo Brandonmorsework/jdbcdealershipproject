@@ -25,7 +25,6 @@ public class LeaseDao {
              preparedStatement.setDate(4, Date.valueOf(leaseContract.getLeaseEnd()));
              preparedStatement.setDouble(5, leaseContract.getMonthlyPayment());
 
-
             int entries = preparedStatement.executeUpdate();
 
             System.out.println("Entries Updated: " + entries);

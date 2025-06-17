@@ -1,6 +1,12 @@
 # Car Dealership JDBC Database - Brandon Morse
 
-## The Car Dealership Database holds information regarding vehicles including their vin, sales and lease contracts, date, mileage and more!
+## The Car Dealership Database holds information regarding vehicles including their vin, sales and lease contracts, date, mileage and more! The user can also create, search, update, delete vehicles based on specific attributes.
+
+## Application Screenshots
+
+![Application Screenshot_A](ApplicationScreenshot_A.png)
+![Application Screenshot_B](ApplicationScreenshot_B.png)
+![Application Screenshot_C](ApplicationScreenshot_C.png)
 
 ### Prerequisites
 
@@ -18,7 +24,7 @@
 
 ## Interesting Code
 
-The Car Dealership database is dropped right before creation to prevent duplicate dealership databases from appearing when inserting values.
+The VehicleDao has a helper method called createVehicleFromResultSet that is repeated in the searchBy methods that handles the logic of listing and adding the info when searching for a vehicle based on an attribute.
 
 ## Thanks!
 
