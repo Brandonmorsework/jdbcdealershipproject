@@ -20,13 +20,11 @@ public class SalesDao {
 
             try (Connection connection = dataSource.getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(
-                         "Insert into lease_contract (contract_id, vin, lease_start, lease_end, monthly_payment) values (?, ?, ?, ?, ?)")) {
-                preparedStatement.setInt(1, leaseContract.getContractId());
-                preparedStatement.setString(2, sa.getVin());
-                preparedStatement.setDate(3, Date.valueOf(leaseContract.getLeaseStart()));
-                preparedStatement.setDate(4, Date.valueOf(leaseContract.getLeaseEnd()));
-                preparedStatement.setDouble(5, leaseContract.getMonthlyPayment());
-
+                         "Insert into sales_contract (contract_id, vin, sale_date, price) values (?, ?, ?, ?)")) {
+                preparedStatement.setInt(1, salesContract.getContractId());
+                preparedStatement.setString(2, salesContract.getVin());
+                preparedStatement.setDate(3, Date.valueOf(salesContract.getSaleDate()));
+                preparedStatement.setDouble(4, salesContract.getPrice());
 
                 int entries = preparedStatement.executeUpdate();
 
@@ -36,5 +34,4 @@ public class SalesDao {
                 ex.printStackTrace();
             }
         }
-    }
 }
