@@ -20,7 +20,7 @@ public class SalesDao {
 
             try (Connection connection = dataSource.getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(
-                         "Insert into sales_contract (contract_id, vin, sale_date, price) values (?, ?, ?, ?)")) {
+                         "Insert into sales_contracts (contract_id, vin, sale_date, price) values (?, ?, ?, ?)")) {
                 preparedStatement.setInt(1, salesContract.getContractId());
                 preparedStatement.setString(2, salesContract.getVin());
                 preparedStatement.setDate(3, Date.valueOf(salesContract.getSaleDate()));
