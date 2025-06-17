@@ -12,13 +12,13 @@ public class InventoryDao {
         this.dataSource = dataSource;
     }
 
-    public void addVehicleToInventory(String vin, int dealershipId) {
+    public void addVehicleToInventory(String vin, int dealership_id) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "Update vehicles SET dealershipId = ? WHERE vin = ?")) {
+                     "Insert into inventory (vin, dealership_id) Values (?, ?)")) {
 
-            preparedStatement.setInt(1, dealershipId);
-            preparedStatement.setString(2, vin);
+            preparedStatement.setString(1, vin);
+            preparedStatement.setInt(2, dealership_id);
 
 
             int entries = preparedStatement.executeUpdate();
